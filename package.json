@@ -5,12 +5,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "build": "electron-packager . BackgroundEngine --platform=win32 --arch=x64 --electronVersion=14.0.0"
+    "build": "electron-packager . BackgroundEngine --platform=win32 --arch=x64 --electronVersion=14.0.0",
+    "package": "electron-builder"
   },
   "author": "Fate",
   "license": "ISC",
   "keywords": [],
   "description": "",
+  "build": {
+    "appId": "com.fate.backgroundengine",
+    "productName": "BackgroundEngine",
+    "win": {
+      "target": "nsis"
+    }
+  },
   "devDependencies": {
     "electron": "^27.0.4"
   },
