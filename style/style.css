@@ -1,0 +1,187 @@
+:root {
+    --bg: #0D1821;
+    --primary: #5DA9E9;
+}
+
+html, body {
+    background-color: var(--bg);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    grid-gap: 20px; /* Space between grid items */
+    padding: 20px;
+}
+
+.grid-item {
+    color: #fff;
+    text-align: center;
+    border: 1px solid var(--primary);
+}
+
+.grid-item:hover {
+    cursor: pointer;
+}
+
+.grid-item video {
+    width: 100%;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: transparent;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+li a:focus {
+    outline: 0;
+    border: 0
+}
+
+
+#selectGame {
+    display: flex;
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg);
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+    border: 3px solid var(--primary);
+}
+
+ /* Playlist Buttons */
+ #selectGame .list button {
+    display: block;
+    width: 600px;
+    height: 60px;
+    margin-bottom: 5px;
+    color: var(--primary);
+    border: 3px solid var(--primary);
+    background-color: transparent;
+}
+
+#selectGame .list button:hover {
+    /*color: beige!important;
+    border-color: beige!important;*/
+
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+/* Close Button */
+#selectGame .list button:last-child {
+    color: rgb(138, 3, 3);
+    border-color: rgb(138, 3, 3);
+}
+
+#selectGame .list button:last-child:hover {
+    background-color: rgb(138, 3, 3);
+    color: white;
+}
+
+#addOwnDialog {
+    display: flex;
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg);
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+    border: 3px solid var(--primary);
+}
+
+ /* Playlist Buttons */
+ #addOwnDialog .list button {
+    display: block;
+    width: 600px;
+    height: 60px;
+    margin-bottom: 5px;
+    color: var(--primary);
+    border: 3px solid var(--primary);
+    background-color: transparent;
+}
+
+#addOwnDialog .list button:hover {
+    /*color: beige!important;
+    border-color: beige!important;*/
+
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+/* Close Button */
+#addOwnDialog .list button:last-child {
+    color: rgb(138, 3, 3);
+    border-color: rgb(138, 3, 3);
+}
+
+#addOwnDialog .list button:last-child:hover {
+    background-color: rgb(138, 3, 3);
+    color: white;
+}
+
+/* Close Button */
+#addOwnDialog .list .green {
+    color: rgb(3, 138, 82);
+    border-color: rgb(3, 138, 82);
+}
+
+#addOwnDialog .list .green:hover {
+    background-color: rgb(3, 138, 82);
+    color: white;
+}
+
+#addOwnDialog .list input {
+    display: block;
+    width: 590px;
+    height: 50px;
+    margin-bottom: 5px;
+    color: var(--primary);
+    border: 3px solid var(--primary);
+    background-color: transparent;
+    text-align: center;
+    outline: 0;
+    font-size: 1rem;
+}
+
+#addOwnDialog .list input:hover {
+    outline: 0;
+}

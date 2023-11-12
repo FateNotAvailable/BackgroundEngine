@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./js/index.js" type="text/javascript" defer></script>
+    <title>Background Engine</title>
+</head>
+<body>
+
+<ul>
+  <li><a href="settings.html">Settings</a></li>
+  <li style="float:right"><a style="background-color: var(--primary);" href="#" onclick="addOwnDialog.style.display = 'block';">Add Own</a></li>
+</ul>
+
+<div class="grid-container">
+</div>
+
+
+
+<div id="selectGame" style="display: none;">
+  <div class="list">
+    <button onclick="addInto('valorant', window.selectedPath); selectGame.style.display='none'">Add into VALORANT</button>
+    <button onclick="window.bgEngine.deleteFile(window.selectedPath); selectGame.style.display='none'; window.location.reload()">Delete</button>
+    <button onclick="selectGame.style.display='none'">Close</button>
+  </div>
+</div>
+
+
+<div id="addOwnDialog" style="display: none;">
+  <div class="list">
+    <input id="video_url" type="text" placeholder="MP4 Link">
+    <button id="download_btn" onclick="download_file();" class="green">Download</button>
+    <button onclick="addOwnDialog.style.display='none'">Close</button>
+  </div>
+</div>
+
+
+</body>
+</html>

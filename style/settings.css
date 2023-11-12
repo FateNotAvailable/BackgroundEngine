@@ -1,0 +1,85 @@
+:root {
+    --bg: #0D1821;
+    --primary: #5DA9E9;
+}
+
+html, body {
+    background-color: var(--bg);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  li a:focus {
+      outline: 0;
+      border: 0
+  }
+
+  
+  .container {
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* Style the input field and button */
+  .input-field {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 500px;
+    box-sizing: border-box;
+    background-color: transparent;
+    border-radius: 1px solid var(--primary);
+    outline: 0;
+    border: 0;
+    border: 1px solid var(--primary);
+    color: white;
+  }
+
+  .input-field:focus {
+    outline: none;
+  }
+
+  .save-button {
+    padding: 10px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  /* Add some hover effect to the button */
+  .save-button:hover {
+    background-color: #4483b6;
+  }
