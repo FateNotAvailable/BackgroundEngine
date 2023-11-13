@@ -29,12 +29,22 @@ class Valorant {
         const filtered_files = files.filter(item => item.endsWith("mp4"));
 
         filtered_files.forEach(file => {
-            fs.unlinkSync(path.join(this.movies_folder, file));
-            fs.copyFileSync(video_path, path.join(this.movies_folder, file));
+            try {
+                fs.unlinkSync(path.join(this.movies_folder, file));
+                fs.copyFileSync(video_path, path.join(this.movies_folder, file));
+                this.db.set("valorant_selected_video_path", video_path);
+                this.db.set("valorant_selected_video_hash", video_hash);
+            }
+            catch (error) {
+                if (error.code === 'EBUSY') {
+                    this.db.set("valorant_selected_video_path", video_path);
+                    this.db.set("valorant_selected_video_hash", video_hash);
+                    console.error('Resource is busy or locked:', error.message);
+                } else {
+                    console.error('An unexpected error occurred:', error);
+                }
+            }
         });
-
-        this.db.set("valorant_selected_video_path", video_path);
-        this.db.set("valorant_selected_video_hash", video_hash);
     }
 
     wasReplaced() {
