@@ -7,17 +7,32 @@ class Valorant {
     constructor() {
         this.db = new Database();
         this.game_path = this.db.get("valorant_path");
-        this.movies_folder = path.join(this.game_path, "live", "ShooterGame", "Content", "Movies", "Menu");
+        if (!!this.game_path){
+            this.movies_folder = path.join(this.game_path, "live", "ShooterGame", "Content", "Movies", "Menu");
+        }  
     }
 
     setBackground(video_path) {
+        // Check if movies folder is set
+        if (!this.movies_folder) {return};
+
+        // Check if video exists
         if (!fs.existsSync(video_path)) {return};
+        
+        // If key does not exist in database, create it
+        if (!this.db.get("valorant_selected_video_path")) {
+            this.db.set("valorant_selected_video_path", "");
+            this.db.set("valorant_selected_video_hash", "");
+        }
+
+        // If path is set, but video was deleted remove it from database
         if (!!this.db.get("valorant_selected_video_path") && !fs.existsSync(this.db.get("valorant_selected_video_path"))) {
             this.db.set("valorant_selected_video_path", "");
             this.db.set("valorant_selected_video_hash", "");
             return;
         }
 
+        // Check if movie folder exists
         if (!fs.existsSync(this.movies_folder)) {
             return;
         }
@@ -28,6 +43,8 @@ class Valorant {
 
         const filtered_files = files.filter(item => item.endsWith("mp4"));
 
+
+        // Replace all videos (mp4) in set folder
         filtered_files.forEach(file => {
             try {
                 fs.unlinkSync(path.join(this.movies_folder, file));

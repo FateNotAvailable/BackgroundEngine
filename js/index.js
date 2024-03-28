@@ -1,5 +1,9 @@
 const grid_container = document.getElementsByClassName("grid-container")[0];
 
+if (!window.bgEngine.getValorantPath()) {
+    location = "settings.html";
+}
+
 window.bgEngine.getBackgrounds()
     .then((backgrounds) => {
         if (!backgrounds) {

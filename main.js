@@ -131,10 +131,19 @@ ipcMain.handle('getDatabase', (event, key) => {
   return db.get(key);
 });
 
+ipcMain.handle('getValorantPath', (event, key) => {
+  let db = new Database();
+  return db.get("valorant_path") || ""
+});
+
 ipcMain.handle('downloadFile', (event, url) => {
   let dwn = new Downloader();
   dwn.download(url);
   return true;
+});
+
+ipcMain.handle('openExplorer', (event) => {
+  require("electron").shell.openPath(videosFolder());
 });
 
 ipcMain.handle('setGameBackground', (event, game, video_path) => {

@@ -10,6 +10,10 @@ contextBridge.exposeInMainWorld('bgEngine', {
         }
     },
 
+    getValorantPath: () => {
+        return ipcRenderer.invoke('getValorantPath');
+    },
+
     getBackgroundEngineFolder: () => {
         return ipcRenderer.invoke('backgroundEngineFolder');
     },
@@ -40,5 +44,9 @@ contextBridge.exposeInMainWorld('bgEngine', {
 
     downloadFile: (url) => {
         return ipcRenderer.invoke('downloadFile', url);
+    },
+
+    openExplorer: () => {
+        return ipcRenderer.invoke('openExplorer');
     }
 });

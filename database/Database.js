@@ -14,6 +14,7 @@ class Database {
     }
 
     set(key, value) {
+        console.log(`Setting ${key} to ${value}`);
         const rawData = fs.readFileSync(this.db_folder, 'utf-8');
         const jsonData = JSON.parse(rawData);
         jsonData[key] = value;
@@ -22,6 +23,7 @@ class Database {
     }
 
     get(key) {
+        console.log(`Getting ${key}`);
         const rawData = fs.readFileSync(this.db_folder, 'utf-8');
         const jsonData = JSON.parse(rawData);
         const value = jsonData[key];
