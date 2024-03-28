@@ -131,3 +131,5 @@ dist
 
 
 BackgroundEngine-win*
+
+package-lock.json
